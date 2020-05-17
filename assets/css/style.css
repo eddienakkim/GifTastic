@@ -13,13 +13,19 @@
 }
 
 .button {
-    background-color: cornflowerblue;
-    border-style: double;
-    border-width: 5px;
+    background-color: rgb(57, 119, 235);
+    border-style: ridge;
+    border-width: 2px;
+    border-color: black;
+    color: white
 }
 
 
 
 #gifs-form {
     margin-left: 80px;
+}
+
+footer {
+    margin-top: 150px;
 }
