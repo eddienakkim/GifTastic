@@ -40,4 +40,63 @@ function displayGiphy() {
             console.log(topicsResults);
             
  
-            
+            $("#gifs-display").empty(topicDisplay);
+           
+        
+            for (var i = 0; i < topicsResults.length; i++) {
+              console.log("Search Results: " + topicsResults);
+              var topicDisplay = $("<div class='col-md-4'>");
+              var rating = topicsResults[i].rating;
+              var p = $("<div class = 'card-title mt-3'>").text("Rating: " + rating + "  " + giphy);
+              var giphyImage = $("<img>");
+              giphyImage.attr("src", topicsResults[i].images.fixed_height_still.url);
+              giphyImage.attr("data-state", "still");
+              giphyImage.attr("data-still", topicsResults[i].images.fixed_height_still.url);
+              giphyImage.attr("data-animate", topicsResults[i].images.fixed_height.url);
+              giphyImage.addClass("gif");
+  
+              
+              $(".gif").on("click", function () {
+              
+                var state = $(this).attr("data-state");
+                if (state === "still") {
+                  $(this).attr("src", $(this).attr("data-animate"));
+                  $(this).attr("data-state", "animate");
+                } else {
+                  $(this).attr("src", $(this).attr("data-still"));
+                  $(this).attr("data-state", "still");
+                }
+              });
+  
+
+              topicDisplay.append(p);
+              topicDisplay.append(giphyImage);
+              console.log(giphyImage);
+              $("#gifs-display").append(topicDisplay);
+            }
+          });
+        }
+      }
+  
+    )
+  } 
+  
+
+  $("#add-gifs").on("click", function (event) {
+    event.preventDefault();
+  
+
+    var giphy = $("#gifs-input").val().trim();
+    if (giphy === "") {
+      alert("Please enter a valid topic");
+      $("#gifs-input").focus();
+    } else {
+      topics.push(giphy);
+      console.log(topics)
+      renderButtons();
+      $("#gifs-input").val().trim();
+    }
+  });
+
+  renderButtons();
+  
