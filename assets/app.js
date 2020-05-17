@@ -28,7 +28,7 @@ function displayGiphy() {
         if (giphy === "") {
           alert("Please Enter a Valid Search!");
         } else {
-          var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphy + "&api_key=RdSmjYtwo1gsjI3ZZFuDrnVW5U4d61o5";
+          var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphy + "&api_key=RdSmjYtwo1gsjI3ZZFuDrnVW5U4d61o5&limit=10";
           console.log("giphy" + giphy);
   
           $.ajax({
@@ -45,7 +45,7 @@ function displayGiphy() {
         
             for (var i = 0; i < topicsResults.length; i++) {
               console.log("Search Results: " + topicsResults);
-              var topicDisplay = $("<div class='col-md-4'>");
+              var topicDisplay = $("<div class='col-md-4 float-left'>");
               var rating = topicsResults[i].rating;
               var p = $("<div class = 'card-title mt-3'>").text("Rating: " + rating);
               var giphyImage = $("<img>");
