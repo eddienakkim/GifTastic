@@ -47,7 +47,7 @@ function displayGiphy() {
               console.log("Search Results: " + topicsResults);
               var topicDisplay = $("<div class='col-md-4'>");
               var rating = topicsResults[i].rating;
-              var p = $("<div class = 'card-title mt-3'>").text("Rating: " + rating + "  " + giphy);
+              var p = $("<div class = 'card-title mt-3'>").text("Rating: " + rating);
               var giphyImage = $("<img>");
               giphyImage.attr("src", topicsResults[i].images.fixed_height_still.url);
               giphyImage.attr("data-state", "still");
